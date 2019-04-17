@@ -1,10 +1,10 @@
 # Predicting Response Times of the San Francisco Fire Department
 
-The goal of this project is to predict the time it will take for the fire department to arrive on the scene of an incident (when applicable) using Apache Spark.
+The goal of this project is to predict the time it will take for the fire department to arrive on the scene of an incident using machine learning in Spark.
 
 ## Data
 
-The [data](https://www.kaggle.com/datasf/san-francisco) comes from the San Francisco Open Data dataset on Kaggle. Though this dataset is updated regularly, the data for this study was collected on January 24, 2018. At the moment, the only data used was the `sfpd_service_calls` table.
+The [data](https://www.kaggle.com/datasf/san-francisco) comes from the San Francisco Open Data dataset on Kaggle. Though this dataset is updated regularly, the data for this study was collected on January 24, 2018. At the moment, the only data used is the `sfpd_service_calls` table.
 
 ## Progress
 
