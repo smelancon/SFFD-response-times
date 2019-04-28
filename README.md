@@ -2,17 +2,14 @@
 
 The goal of this project is to predict the time it will take for the San Francisco Fire Department to arrive on the scene of an incident using machine learning in Spark.
 
-This was the final project for our course in Distributed Data Systems in the University of San Francisco Master of Science in Data Science program taught by Diane Woodbridge.
+This was the final project for our course in Distributed Data Systems in the University of San Francisco Master of Science in Data Science program taught by [Diane Woodbridge](https://github.com/dianewoodbridge).
 
 ## Contributers
 
-[Adam Reevesman](https://github.com/areevesman)
-
-[Sarah Melancon](https://github.com/smelancon)
-
-[Xu Lian](https://github.com/xulianrenzoku)
-
-[Jon-Ross Presta](https://github.com/jrpresta)
+- [Adam Reevesman](https://github.com/areevesman)
+- [Sarah Melancon](https://github.com/smelancon)
+- [Xu Lian](https://github.com/xulianrenzoku)
+- [Jon-Ross Presta](https://github.com/jrpresta)
 
 ## Data
 
