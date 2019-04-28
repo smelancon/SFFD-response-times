@@ -37,38 +37,23 @@ We used four different algorithms to compare the results:
 We found that the data from the Google Distance Matrix API provided the most useful features when modeling response times. However, the features from the Kaggle dataset did lead to some improvement over predictions based on Google alone.
 
 Linear Regression: 
-
-R^2:  0.0382449456338
-
-RMSE: 4.82394317574 (minutes)
-
-MAE: 3.3039737344 (minutes)
-
+- R^2:  0.0382449456338
+- RMSE: 4.82394317574 (minutes)
+- MAE: 3.3039737344 (minutes)
 
 Linear Regression with Elastic Net:
-
-R^2:  -0.0368547038269
-
-RMSE: 5.00874469868
-
-MAE: 3.45915225661
-
+- R^2:  -0.0368547038269
+- RMSE: 5.00874469868
+- MAE: 3.45915225661
 
 Decision Tree:
-
-R^2:  0.0245728649704
-
-RMSE: 4.85811019003
-
-MAE: 3.34637837615
-
+- R^2:  0.0245728649704
+- RMSE: 4.85811019003
+- MAE: 3.34637837615
 
 Random Forest:
-
-R^2:  0.0229994180441
-
-RMSE: 4.86202688363
-
-MAE: 3.34406035385
+- R^2:  0.0229994180441
+- RMSE: 4.86202688363
+- MAE: 3.34406035385
 
 See [this notebook](/notebooks/modeling.ipynb) for our process and results.
