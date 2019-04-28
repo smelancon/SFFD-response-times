@@ -4,11 +4,14 @@ The goal of this project is to predict the time it will take for the fire depart
 
 This was the final project for our course in Distributed Data Systems in the University of San Francisco Master of Science in Data Science program taught by Diane Woodbridge.
 
-## Contributes
+## Contributers
 
 [Adam Reevesman](https://github.com/areevesman)
+
 [Sarah Melancon](https://github.com/smelancon)
+
 [Xu Lian](https://github.com/xulianrenzoku)
+
 [Jon-Ross Presta](https://github.com/jrpresta)
 
 ## Data
