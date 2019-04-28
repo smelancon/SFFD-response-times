@@ -1,6 +1,6 @@
 # Predicting Response Times of the San Francisco Fire Department
 
-The goal of this project is to predict the time it will take for the fire department to arrive on the scene of an incident using machine learning in Spark.
+The goal of this project is to predict the time it will take for the San Francisco Fire Department to arrive on the scene of an incident using machine learning in Spark.
 
 This was the final project for our course in Distributed Data Systems in the University of San Francisco Master of Science in Data Science program taught by Diane Woodbridge.
 
@@ -55,5 +55,7 @@ Random Forest:
 - R^2:  0.0229994180441
 - RMSE: 4.86202688363
 - MAE: 3.34406035385
+
+We determined that the Random Forest model had the best results.
 
 See [this notebook](/notebooks/modeling.ipynb) for our process and results.
