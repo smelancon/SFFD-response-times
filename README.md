@@ -2,33 +2,38 @@
 
 The goal of this project is to predict the time it will take for the fire department to arrive on the scene of an incident using machine learning in Spark.
 
+This was the final project for our course in Distributed Data Systems in the University of San Francisco Master of Science in Data Science program taught by Diane Woodbridge.
+
+## Contributes
+
+[Adam Reevesman](https://github.com/areevesman)
+[Sarah Melancon](https://github.com/smelancon)
+[Xu Lian](https://github.com/xulianrenzoku)
+[Jon-Ross Presta](https://github.com/jrpresta)
+
 ## Data
 
-The [data](https://www.kaggle.com/datasf/san-francisco) comes from the San Francisco Open Data dataset on Kaggle. Though this dataset is updated regularly, the data for this study was collected on January 24, 2018. At the moment, the only data used is the `sfpd_service_calls` table.
+The [data](https://www.kaggle.com/datasf/san-francisco) comes from the San Francisco Open Data dataset on Kaggle. Though this dataset is updated regularly, the data for this study was collected on January 24, 2018. We used the features `station_area`, `call_type`, `zipcode_of_incident`, `received_hour`, and `day_of_week` from this dataset. We also obtained our labels from this dataset.
 
-## Progress
+The features `distance` and `duration` were created using the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/intro) to get distances and time estimates between each fire station and the addess of the incident.
 
-Linear regression (regularized and unregularized), decision tree regression and random forest regression models were fit using a few variables from the `sfpd_service_calls` table. They were `battalion`, `station_area`, `call_type`, and `zipcode_of_incident`.
+Checkout [this notebook](/notebooks/data_prep.ipynb) to see how we extracted features from the Kaggle dataset and [this notebook](/notebooks/google_routes_data_prep.ipynb) to see how we added features from the Google Distance Matrix API.
 
+## Methods
 
-Features for `day_of_week` and `hour_of_day` were created from the original dataset and features for `distance` and `duration` were created using the [Google Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/intro) to get distances and time estimates between each fire station and the addess of the incident. Given a destination and origin, an http request is sent for a json object that contains the variables of interest. A departure time can also be specified (must be "now" or in the future; we used "now" and results were obtained throughout the day on a Saturday).
+We used the MLlib machine learning library in PySpark and ran our code on an AWS t2.xlarge EMR cluster.
 
-## Possible Todo's:
-
-- Cluster the fire_stations (`station_area`) in `sfpd_service_calls` and put some `call_type`'s in an "other" category. For example, a table of summary statistics was generated about each of the fire stations, this could be used to do clustering.
-- Use the data in the `sfpd_incidents` table to get aggregates of crime based on addresses. The addresses can (hopefully) be used to join this data with the `sffd_service_calls`.
-- Generate variables like the year, month, day and hour of that the call was received by the fire department.
-- Look into joining the rest of the tables in a similar fashion as the crime table
+We used four different algorithms to compare the results:
+- Linear Regression
+- Linear Regression with Elastic Net
+- Decision Tree
+- Random Forest
 
 ## Results
 
-We found that the data from the Google Routes API would be the most useful features when modeling response times. Without this information, we did not have the physical distance between fire stations and incidents. In addition, Google gives an estimate of the time it will take to drive between the two locations (just like if one was to use Google Maps on their phone). 
+We found that the data from the Google Distance Matrix API provided the most useful features when modeling response times. However, the features from the Kaggle dataset did lead to some improvement over predictions based on Google alone.
 
-Using the distances and time estimates, we built a linear regression model using just these two features. This gives interpretable coefficients that measure how one could scale the distance and estimated driving time for a regular driver to figure out what that time looks like for an ambulance or fire truck.
-
-In addition to this simple model, data from the `sffd_service_calls` and `sfpd_incidents` tables were used to make more accurate predictions.
-
-Linear Regression using all of the feautures showed the best results with 
+Linear Regression: 
 
 R^2:  0.0382449456338
 
@@ -36,4 +41,31 @@ RMSE: 4.82394317574 (minutes)
 
 MAE: 3.3039737344 (minutes)
 
-[This](/notebooks/sffd_m4.large_big.ipynb) notebook outlines our process.
+
+Linear Regression with Elastic Net:
+
+R^2:  -0.0368547038269
+
+RMSE: 5.00874469868
+
+MAE: 3.45915225661
+
+
+Decision Tree:
+
+R^2:  0.0245728649704
+
+RMSE: 4.85811019003
+
+MAE: 3.34637837615
+
+
+Random Forest:
+
+R^2:  0.0229994180441
+
+RMSE: 4.86202688363
+
+MAE: 3.34406035385
+
+See [this notebook](/notebooks/modeling.ipynb) for our process and results.
